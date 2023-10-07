@@ -80,14 +80,15 @@ class LinkedList<T> {
         prev.next = null;
     }
 
-    static Node removeLastNode(Node head)
+    public Node<T> removeLastNode(Node<T> head)
     { 
         if (head == null) 
             return null; 
 
-        if (head.next == null) {      return null; 
+        if (head.next == null) {      
+            return null; 
         } 
-        Node second_last = head; 
+        Node<T> second_last = head; 
 
         while (second_last.next.next != null) 
 
@@ -96,20 +97,16 @@ class LinkedList<T> {
         return head; 
 
     } 
-    Node reverse(Node node)
+    public LinkedList<String> reverse(Node<T> head)
 
     {
-        Node prev = null;
-        Node current = node;
-        Node next = null;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+        LinkedList<String> reverse=new LinkedList<String>();
+        Node<T> temp = head;
+        while(temp!=null){
+            reverse.addFirst(temp.data.toString());
+            temp = temp.next;
         }
-        node = prev;
-        return node;
+        return reverse;
     }
     public static void main(String args[]) {
         LinkedList<String> ll = new LinkedList<String>();
@@ -123,6 +120,8 @@ class LinkedList<T> {
         ll.addLast("am");
         ll.addLast("Harsh Goyal");
         ll.printList();
+        LinkedList<String> llreverse = ll.reverse(ll.head);
+        llreverse.printList();
     }
 
 }
