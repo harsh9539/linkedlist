@@ -53,6 +53,24 @@ using namespace std;
         }
         cout<<"NULL"<<endl;
     }
+
+    void deletion(int val){
+        Node* temp = head;
+        if(head==NULL){
+            return;
+        }
+        if(head->data==val){
+            Node* todelete1 = head;
+            head = head->next;
+            delete todelete1;
+        }
+        while(temp->next->data!=val){
+            temp=temp->next;
+        }
+        Node* todelete = temp->next;
+        temp->next=temp->next->next;
+        delete todelete;
+    }
 int main()
 {
     Node* head = NULL;
