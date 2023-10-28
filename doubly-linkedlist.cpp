@@ -61,6 +61,30 @@ void insertAtAny(Node* &head,int value,int pos){
         }
     }
 }
+
+void deletion(Node* &head,int pos){
+    
+    if(pos==1){
+        Node* todelete = head;
+        head=head->next;
+        head->prev=NULL;
+        
+        delete todelete;
+    }
+    else{
+        Node* temp = head;
+        int count =1;
+        while(temp!=NULL && count!=pos){
+            temp=temp->next;
+            count++;
+        }
+        temp->prev->next=temp->next;
+        if(temp->next!=NULL){
+            temp->next->prev=temp->prev;
+        }
+        delete temp;
+    }
+}
 void display(Node* &head){
     Node* temp = head;
     while(temp!=NULL){
