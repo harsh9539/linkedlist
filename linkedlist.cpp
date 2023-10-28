@@ -71,6 +71,17 @@ using namespace std;
         temp->next=temp->next->next;
         delete todelete;
     }
+    
+    bool search( int key){
+        Node* temp = head;
+        while(temp!=NULL){
+            if(temp->data==key){
+                return true;
+            }
+            temp=temp->next;
+        }
+        return false;
+    }
 int main()
 {
     Node* head = NULL;
