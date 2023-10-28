@@ -82,6 +82,17 @@ using namespace std;
         }
         return false;
     }
+
+    Node* reverseRecursive(Node* &head){
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+        Node* newHead = reverseRecursive(head->next);
+        head->next->next=head;
+        head->next=NULL;
+        
+        return newHead;
+    }
 int main()
 {
     Node* head = NULL;
